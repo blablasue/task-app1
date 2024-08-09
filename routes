@@ -1,0 +1,12 @@
+to get single by id
+/api/tasks/[id] GET
+to get all of user
+/api/tasks
+to get complete/incomplete
+/api/tasks
+to post single
+/api/tasks
+to edit existing by id
+/api/tasks/[id] EDIT
+to delete by id
+/api/tasks/[delete]
