@@ -33,7 +33,11 @@ export default async function Home() {
           />
         ))}
       </div>
-      <Link href={"/new"}>Create new Task</Link>
+      <div className="mt-5">
+        <Link className="bg-slate-300 p-1 rounded-lg shadow-sm" href={"/new"}>
+          Create new Task
+        </Link>
+      </div>
     </main>
   );
 }

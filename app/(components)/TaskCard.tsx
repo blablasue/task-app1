@@ -24,15 +24,17 @@ const TaskCard = (props: Task) => {
     console.log("edit at ", props.id);
   };
   return (
-    <div className="bg-slate-200 w-1/6 rounded-lg px-3 py-2 shadow-md">
-      <h2 className="border-b-2 border-slate-500">{props.title}</h2>
-      <div className="">
-        <p className="w-auto border-slate-500 whitespace-normal break-words">
-          {props.description}
-        </p>
+    <div className="bg-slate-200 w-1/6 rounded-lg px-3 py-2 shadow-md flex flex-col justify-between">
+      <div>
+        <h2 className="border-b-2 border-slate-500">{props.title}</h2>
+        <div className="">
+          <p className="w-auto border-slate-500 whitespace-normal break-words">
+            {props.description}
+          </p>
+        </div>
+        <p>{props.priority}</p>
+        <p>{props.isCompleted ? "Completed" : "Work in Progress"}</p>
       </div>
-      <p>{props.priority}</p>
-      <p>{props.isCompleted ? "Completed" : "Work in Progress"}</p>
       <div className="flex justify-between">
         <button className="text-red-500" onClick={deleteTask}>
           Delete
