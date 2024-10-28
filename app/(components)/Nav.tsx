@@ -1,5 +1,5 @@
 import React from "react";
-import { currentUser } from "@clerk/nextjs";
+import { currentUser, SignOutButton } from "@clerk/nextjs";
 import Link from "next/link";
 
 const Nav = async () => {
@@ -25,6 +25,9 @@ const Nav = async () => {
       </Link>
       <div className="mr-4">
         {user.firstName} {user.lastName}
+        <div>
+          <SignOutButton>Sign Out</SignOutButton>
+        </div>
       </div>
     </div>
   );
