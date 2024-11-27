@@ -22,7 +22,7 @@ const TaskForm = (props?: Task) => {
       description,
       isCompleted,
     };
-    createTask(author, data);
+    createTask(data, author);
     router.push("/");
   };
   const handleEdit = async (event: React.SyntheticEvent) => {

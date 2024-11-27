@@ -1,36 +1,32 @@
 "use server";
 
+import { PrismaClient, Task } from "@prisma/client";
 import getUser from "./getUser";
 
-interface NewTask {
-  title: String;
-  description: String;
-  priority: Number;
-  isCompleted: Boolean;
-}
-const createTask = async (user?: any, task?: NewTask) => {
+const createTask = async (task: Task, user?: any) => {
+  const db = new PrismaClient();
   const userData = await getUser(user.email);
-  let data: any;
-  if (!userData)
-    data = {
-      email: user.email,
-      tasks: {
-        create: task,
+  // console.log(task);
+  let newTask: any;
+  if (!userData) {
+    newTask = await db.user.create({
+      data: {
+        email: user.email,
+        tasks: {
+          create: task,
+        },
       },
-    };
-  else {
-    data = {
-      ...task,
-      userId: userData.id,
-    };
+    });
+  } else {
+    newTask = await db.task.create({
+      data: {
+        ...task,
+        userId: userData.id,
+      },
+    });
   }
-  const response = await fetch("http://localhost:3000/api/tasks", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(data),
-  });
+  //return NextResponse.json(newTask, { status: 201 });
+  return true;
 };
 
 export default createTask;

@@ -1,9 +1,11 @@
 import TaskForm from "@/app/(components)/TaskForm";
+import getTask from "@/app/(utils)/getTask";
+import { error } from "console";
 import React from "react";
 
 const page = async ({ params }: { params: { id: string } }) => {
-  const res = await fetch(`http://localhost:3000/api/tasks/${params.id}`);
-  const task = await res.json();
+  const task = await getTask(params.id);
+  if (!task) throw error;
   return (
     <main>
       <TaskForm

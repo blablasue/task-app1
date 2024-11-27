@@ -24,7 +24,7 @@ export default async function Home() {
         </Link>
       </div>
     );
-  const tasks = await res.json();
+  const tasks = await res;
   return (
     <main>
       {/* <div>Current User: {user.emailAddresses[0].emailAddress}</div> */}
