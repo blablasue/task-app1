@@ -8,7 +8,7 @@ import { useRouter } from "next/navigation";
 const TaskCard = (props: Task) => {
   const router = useRouter();
   return (
-    <div className="bg-slate-200 w-1/6 rounded-lg px-3 py-2 shadow-md flex flex-col justify-between">
+    <div className="bg-slate-200 rounded-lg px-3 py-2 shadow-md flex flex-col justify-between min-w-60 max-w-60 w-full mt-5 mx-4">
       <div>
         <h2 className="border-b-2 border-slate-500">{props.title}</h2>
         <div className="">
