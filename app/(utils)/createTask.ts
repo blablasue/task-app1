@@ -3,7 +3,14 @@
 import { PrismaClient, Task } from "@prisma/client";
 import getUser from "./getUser";
 
-const createTask = async (task: Task, user?: any) => {
+interface newTask {
+  title: string;
+  description: string;
+  isCompleted: boolean;
+  priority: number;
+}
+
+const createTask = async (task: newTask, user?: any) => {
   const db = new PrismaClient();
   const userData = await getUser(user.email);
   // console.log(task);

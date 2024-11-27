@@ -32,12 +32,14 @@ const TaskForm = (props?: Task) => {
       email: user?.primaryEmailAddress?.emailAddress,
     };
     const data = {
-      title,
-      priority,
-      description,
-      isCompleted,
+      title: title,
+      description: description,
+      priority: priority,
+      isCompleted: isCompleted,
+      userId: props.userId,
+      id: props.id,
     };
-    editTask(author, props.id, data);
+    editTask(author, data);
     router.push("/");
   };
   const [title, setTitle] = useState<string>(props ? props.title : "");
