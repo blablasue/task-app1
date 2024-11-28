@@ -141,7 +141,12 @@ const TaskForm = (props?: Task) => {
           checked={isCompleted}
           onChange={(e) => SetIsCompleted(!isCompleted)}
         />
-        <button type="submit">Submit</button>
+        <button
+          className="mt-3 px-2 w-fit h-7 rounded-md bg-slate-300 hover:bg-green-200"
+          type="submit"
+        >
+          Submit
+        </button>
       </form>
     </div>
   );
