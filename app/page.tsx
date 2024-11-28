@@ -41,7 +41,7 @@ export default async function Home() {
           />
         ))}
       </div>
-      <div className="ml-10 mt-5">
+      <div className="ml-10 mt-5 w-12 h-12">
         <Link className="" href={"/new"}>
           <svg
             className="w-12 h-12 text-green-500 dark:text-white hover:text-green-700 transition-colors"

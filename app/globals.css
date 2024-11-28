@@ -2,7 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
-main {
-  margin-right: 100px;
-  margin-left: 100px;
+@layer base {
+  main {
+    margin-right: 100px;
+    margin-left: 100px;
+  }
+  .taskForm {
+    display: flex;
+    flex-direction: column;
+    input {
+      flex: auto;
+      width: 100%;
+    }
+    .prioInput {
+      input {
+        flex: auto;
+        width: 30px;
+      }
+    }
+    .checkBox {
+      width: 20px;
+      height: 20px;
+    }
+  }
 }

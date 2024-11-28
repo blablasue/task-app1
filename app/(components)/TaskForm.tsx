@@ -52,7 +52,10 @@ const TaskForm = (props?: Task) => {
   );
   return (
     <div>
-      <form onSubmit={editMode ? handleEdit : handleSubmit}>
+      <form
+        className="taskForm"
+        onSubmit={editMode ? handleEdit : handleSubmit}
+      >
         <label htmlFor="title">Title:</label>
         <input
           id="title"
@@ -64,17 +67,19 @@ const TaskForm = (props?: Task) => {
           onChange={(e) => setTitle(e.target.value)}
         />
         <label htmlFor="description">Description:</label>
-        <input
+        <textarea
           id="description"
           name="description"
-          type="textarea"
           placeholder="Your description"
+          rows={5}
+          cols={30}
+          className="h-20"
           // defaultValue={props ? props.description : undefined}
           value={description}
           onChange={(e) => setDescription(e.target.value)}
         />
         <label htmlFor="priority">Priority:</label>
-        <div>
+        <div className="prioInput flex-row">
           <label htmlFor="priority1">1</label>
           <input
             id="priority1"
@@ -128,6 +133,7 @@ const TaskForm = (props?: Task) => {
         </div>
         <label htmlFor="isCompleted">Is Completed?</label>
         <input
+          className="checkBox"
           id="isCompleted"
           name="isCompleted"
           type="checkbox"
